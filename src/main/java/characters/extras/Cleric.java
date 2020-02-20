@@ -6,7 +6,7 @@ import arsenal.Remedy;
 
 import java.util.ArrayList;
 
-public class Cleric extends Extra implements IHeal {
+public class Cleric extends Extra implements IHeal, IAttack {
 
     private ArrayList<Remedy> remedies;
 
@@ -29,6 +29,16 @@ public class Cleric extends Extra implements IHeal {
 
     public void heal(IAttack player){
         int increasedHealth = player.getHealth() + 20;
+        if(increasedHealth > 100){
+            increasedHealth = 100;
+        }
+
         player.setHealth(increasedHealth);
     }
+
+    public void attack(IAttack enemy){
+        int reducedHealth = enemy.getHealth() - 5;
+        enemy.setHealth(reducedHealth);
+    }
+
 }

@@ -17,7 +17,7 @@ public class JungleTest {
     Jungle jungle;
     IAttack dwarf;
     IAttack enemy;
-    IHeal extra;
+    Cleric cleric;
     Weapon club;
     Weapon sword1;
     Weapon sword2;
@@ -32,8 +32,8 @@ public class JungleTest {
         dwarf = new Dwarf("Jenkins", 100, weapons);
         club = new Weapon("club", 20);
         enemy = new Troll("Gurt", 100, 20, club);
-        extra = new Cleric("Hoffman", 100);
-        jungle = new Jungle(dwarf, enemy, extra);
+        cleric = new Cleric("Hoffman", 100);
+        jungle = new Jungle(dwarf, enemy, cleric);
     }
 
     @Test
@@ -48,7 +48,7 @@ public class JungleTest {
 
     @Test
     public void getExtra() {
-        assertEquals(extra, jungle.getExtra());
+        assertEquals(cleric, jungle.getExtra());
     }
 
     @Test
@@ -66,7 +66,25 @@ public class JungleTest {
     @Test
     public void clericCanHealPlayer(){
         enemy.attack(dwarf);
-        extra.heal(dwarf);
+        cleric.heal(dwarf);
         assertEquals(100, dwarf.getHealth());
+    }
+
+    @Test
+    public void clericCannotHealPlayerAbove100Health(){
+        cleric.heal(dwarf);
+        assertEquals(100, dwarf.getHealth());
+    }
+
+    @Test
+    public void enemyCanAttackCleric(){
+        enemy.attack(cleric);
+        assertEquals(80, cleric.getHealth());
+    }
+
+    @Test
+    public void clericCanAttackEnemy(){
+        cleric.attack(enemy);
+        assertEquals(95, enemy.getHealth());
     }
 }

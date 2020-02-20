@@ -19,5 +19,7 @@ public abstract class Extra {
         return health;
     }
 
-
+    public void setHealth(int health) {
+        this.health = health;
+    }
 }
