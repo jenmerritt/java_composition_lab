@@ -1,6 +1,6 @@
 package characters.players;
 
-import arsenal.weapons.Weapon;
+import arsenal.Weapon;
 
 import java.util.ArrayList;
 

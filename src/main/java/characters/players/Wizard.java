@@ -1,6 +1,6 @@
 package characters.players;
 
-import arsenal.spells.Spell;
+import arsenal.Spell;
 
 import java.util.ArrayList;
 
