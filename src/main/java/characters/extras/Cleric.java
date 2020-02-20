@@ -1,10 +1,12 @@
 package characters.extras;
 
+import arsenal.IAttack;
+import arsenal.IHeal;
 import arsenal.Remedy;
 
 import java.util.ArrayList;
 
-public class Cleric extends Extra {
+public class Cleric extends Extra implements IHeal {
 
     private ArrayList<Remedy> remedies;
 
@@ -25,5 +27,8 @@ public class Cleric extends Extra {
         remedies.add(remedy);
     }
 
-
+    public void heal(IAttack player){
+        int increasedHealth = player.getHealth() + 20;
+        player.setHealth(increasedHealth);
+    }
 }

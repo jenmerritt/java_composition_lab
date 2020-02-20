@@ -1,12 +1,10 @@
 import Arenas.Jungle;
 import arsenal.IAttack;
+import arsenal.IHeal;
 import arsenal.Weapon;
-import characters.enemies.Enemy;
 import characters.enemies.Troll;
 import characters.extras.Cleric;
-import characters.extras.Extra;
 import characters.players.Dwarf;
-import characters.players.Player;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -19,11 +17,10 @@ public class JungleTest {
     Jungle jungle;
     IAttack dwarf;
     IAttack enemy;
-    Extra extra;
+    IHeal extra;
     Weapon club;
     Weapon sword1;
     Weapon sword2;
-
 
     @Before
     public void before() {
@@ -36,7 +33,7 @@ public class JungleTest {
         club = new Weapon("club", 20);
         enemy = new Troll("Gurt", 100, 20, club);
         extra = new Cleric("Hoffman", 100);
-        jungle = new Jungle(dwarf, enemy, extra );
+        jungle = new Jungle(dwarf, enemy, extra);
     }
 
     @Test
@@ -55,8 +52,21 @@ public class JungleTest {
     }
 
     @Test
-    public void playerAttacksEnemy(){
+    public void playerCanAttackEnemy(){
         dwarf.attack(enemy);
         assertEquals(75, enemy.getHealth());
+    }
+
+    @Test
+    public void EnemyCanAttackPlayer(){
+        enemy.attack(dwarf);
+        assertEquals(80, dwarf.getHealth());
+    }
+
+    @Test
+    public void clericCanHealPlayer(){
+        enemy.attack(dwarf);
+        extra.heal(dwarf);
+        assertEquals(100, dwarf.getHealth());
     }
 }

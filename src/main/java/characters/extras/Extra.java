@@ -18,4 +18,6 @@ public abstract class Extra {
     public int getHealth() {
         return health;
     }
+
+
 }

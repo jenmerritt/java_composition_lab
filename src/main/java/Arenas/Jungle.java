@@ -1,6 +1,7 @@
 package Arenas;
 
 import arsenal.IAttack;
+import arsenal.IHeal;
 import characters.enemies.Enemy;
 import characters.extras.Extra;
 import characters.players.Player;
@@ -9,9 +10,9 @@ public class Jungle {
 
     private IAttack player;
     private IAttack enemy;
-    private Extra extra;
+    private IHeal extra;
 
-    public Jungle(IAttack player, IAttack enemy, Extra extra){
+    public Jungle(IAttack player, IAttack enemy, IHeal extra){
         this.player = player;
         this.enemy = enemy;
         this.extra = extra;
@@ -25,7 +26,7 @@ public class Jungle {
         return enemy;
     }
 
-    public Extra getExtra() {
+    public IHeal getExtra() {
         return extra;
     }
 

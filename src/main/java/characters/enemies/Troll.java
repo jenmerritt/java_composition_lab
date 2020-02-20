@@ -22,6 +22,7 @@ public class Troll extends Enemy implements IAttack {
     }
 
     public void attack(IAttack player){
-        player.getHealth();
+        int reducedHealth = player.getHealth() - this.club.getDamage();
+        player.setHealth(reducedHealth);
     }
 }

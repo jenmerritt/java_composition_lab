@@ -35,8 +35,7 @@ public class DwarfTest {
     }
 
     @Test
-    public void weaponsStartsAtZero(){
-        assertEquals(0, dwarf.getNumberOfWeapons());
+    public void canGetNumberOfWeapons(){
+        assertEquals(2, dwarf.getNumberOfWeapons());
     }
-
 }
