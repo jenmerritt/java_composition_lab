@@ -6,10 +6,12 @@ public abstract class Enemy{
 
     private String name;
     private int health;
+    private int treasure;
 
-    public Enemy(String name, int health) {
+    public Enemy(String name, int health, int treasure) {
         this.name = name;
         this.health = health;
+        this.treasure = treasure;
     }
 
     public String getName() {
@@ -24,4 +26,11 @@ public abstract class Enemy{
         this.health = health;
     }
 
+    public int getTreasure() {
+        return this.treasure;
+    }
+
+    public void setTreasureToZero() {
+        this.treasure = 0;
+    }
 }

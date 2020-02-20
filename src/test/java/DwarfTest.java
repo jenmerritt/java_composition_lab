@@ -1,4 +1,6 @@
 import arsenal.Weapon;
+import characters.enemies.Enemy;
+import characters.enemies.Troll;
 import characters.players.Dwarf;
 import characters.players.Knight;
 import org.junit.Before;
@@ -13,6 +15,7 @@ public class DwarfTest {
     Weapon sword1;
     Weapon sword2;
     Dwarf dwarf;
+    Enemy enemy;
 
     @Before
     public void before(){
@@ -22,6 +25,7 @@ public class DwarfTest {
         weapons.add(sword1);
         weapons.add(sword2);
         dwarf = new Dwarf("Jenkins", 100, weapons);
+        enemy = new Troll("Bob", 100, 50, sword1);
     }
 
     @Test
@@ -37,5 +41,12 @@ public class DwarfTest {
     @Test
     public void canGetNumberOfWeapons(){
         assertEquals(2, dwarf.getNumberOfWeapons());
+    }
+
+    @Test
+    public void canGetTreasureFromEnemy(){
+        dwarf.getTreasureFromEnemy(enemy);
+        assertEquals(50, dwarf.getTreasure());
+        assertEquals(0, enemy.getTreasure());
     }
 }

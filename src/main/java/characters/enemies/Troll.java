@@ -11,18 +11,14 @@ public class Troll extends Enemy implements IAttack {
     private Weapon club;
 
     public Troll(String name, int health, int treasure, Weapon club){
-        super(name, health);
-        this.treasure = treasure;
+        super(name, health, treasure);
         this.club = club;
 
-    }
-
-    public int getTreasure() {
-        return this.treasure;
     }
 
     public void attack(IAttack player){
         int reducedHealth = player.getHealth() - this.club.getDamage();
         player.setHealth(reducedHealth);
     }
+
 }

@@ -1,6 +1,7 @@
 package characters.players;
 
 import arsenal.IAttack;
+import characters.enemies.Enemy;
 
 public abstract class Player{
 
@@ -26,4 +27,16 @@ public abstract class Player{
     public void setHealth(int health) {
         this.health = health;
     }
+
+    public int getTreasure(){
+        return this.treasure;
+    }
+
+    public void getTreasureFromEnemy(Enemy enemy){
+        int treasure = enemy.getTreasure();
+        enemy.setTreasureToZero();
+        this.treasure += treasure;
+    }
+
+
 }
