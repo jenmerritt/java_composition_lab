@@ -1,6 +1,8 @@
 package characters.players;
 
-public abstract class Player {
+import arsenal.IAttack;
+
+public abstract class Player{
 
     private String name;
     private int health;
@@ -17,7 +19,11 @@ public abstract class Player {
     }
 
     public int getHealth() {
+
         return health;
     }
 
+    public void setHealth(int health) {
+        this.health = health;
+    }
 }

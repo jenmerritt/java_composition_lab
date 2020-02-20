@@ -1,5 +1,7 @@
 package characters.extras;
 
+import arsenal.IAttack;
+
 public abstract class Extra {
     private String name;
     private int health;

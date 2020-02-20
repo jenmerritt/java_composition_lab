@@ -1,16 +1,17 @@
 package characters.players;
 
+import arsenal.IAttack;
 import arsenal.Weapon;
 
 import java.util.ArrayList;
 
-public class Dwarf extends Player {
+public class Dwarf extends Player implements IAttack {
 
     private ArrayList<Weapon> weapons;
 
-    public Dwarf(String name, int health){
+    public Dwarf(String name, int health, ArrayList<Weapon> weapons){
         super(name, health);
-        this.weapons = new ArrayList<Weapon>();
+        this.weapons = weapons;
     }
 
     public ArrayList<Weapon> getWeapons() {
@@ -21,8 +22,9 @@ public class Dwarf extends Player {
         return weapons.size();
     }
 
-    public void addWeapon(Weapon weapon){
-        weapons.add(weapon);
+    public void attack(IAttack enemy){
+        int reducedHealth = enemy.getHealth() - this.weapons.get(0).getDamage();
+        enemy.setHealth(reducedHealth);
     }
 
 }

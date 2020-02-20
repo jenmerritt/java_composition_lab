@@ -1,6 +1,8 @@
 package characters.enemies;
 
-public abstract class Enemy {
+import arsenal.IAttack;
+
+public abstract class Enemy{
 
     private String name;
     private int health;
@@ -17,4 +19,9 @@ public abstract class Enemy {
     public int getHealth() {
         return health;
     }
+
+    public void setHealth(int health) {
+        this.health = health;
+    }
+
 }

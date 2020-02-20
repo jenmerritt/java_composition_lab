@@ -1,26 +1,27 @@
 package Arenas;
 
+import arsenal.IAttack;
 import characters.enemies.Enemy;
 import characters.extras.Extra;
 import characters.players.Player;
 
 public class Jungle {
 
-    private Player player;
-    private Enemy enemy;
+    private IAttack player;
+    private IAttack enemy;
     private Extra extra;
 
-    public Jungle(Player player, Enemy enemy, Extra extra){
+    public Jungle(IAttack player, IAttack enemy, Extra extra){
         this.player = player;
         this.enemy = enemy;
         this.extra = extra;
     }
 
-    public Player getPlayer() {
+    public IAttack getPlayer() {
         return player;
     }
 
-    public Enemy getEnemy() {
+    public IAttack getEnemy() {
         return enemy;
     }
 

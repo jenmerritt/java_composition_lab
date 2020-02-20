@@ -1,6 +1,6 @@
 package arsenal;
 
-public class Spell {
+public class Spell{
 
     private String name;
     private int damage;
